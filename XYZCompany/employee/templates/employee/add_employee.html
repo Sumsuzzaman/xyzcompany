@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% load form_tags %} {% block content %}
+
+<div class="container mt-5">
+  <h1 class="text-center">Add New Employee</h1>
+
+  <!-- Bootstrap Card for the form -->
+  <div class="card mx-auto mt-3" style="max-width: 600px">
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %}
+
+        <!-- Name Field -->
+        <div class="mb-3">
+          <label for="id_name" class="form-label">Name</label>
+          {{ form.name|add_class:"form-control" }}
+        </div>
+
+        <!-- Address Field -->
+        <div class="mb-3">
+          <label for="id_address" class="form-label">Address</label>
+          {{ form.address|add_class:"form-control" }}
+        </div>
+
+        <!-- Phone Number Field -->
+        <div class="mb-3">
+          <label for="id_phone_number" class="form-label">Phone Number</label>
+          {{ form.phone_number|add_class:"form-control" }}
+        </div>
+
+        <!-- Salary Field -->
+        <div class="mb-3">
+          <label for="id_salary" class="form-label">Salary</label>
+          {{ form.salary|add_class:"form-control" }}
+        </div>
+
+        <!-- Designation Field -->
+        <div class="mb-3">
+          <label for="id_designation" class="form-label">Designation</label>
+          {{ form.designation|add_class:"form-control" }}
+        </div>
+
+        <!-- Short Description Field -->
+        <div class="mb-3">
+          <label for="id_description" class="form-label"
+            >Short Description</label
+          >
+          {{ form.description|add_class:"form-control" }}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Add Employee</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

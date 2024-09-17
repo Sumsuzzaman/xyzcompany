@@ -1,0 +1,71 @@
+{% load form_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f5f5f5;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        height: 100%;
+      }
+
+      .row {
+        height: 100%;
+      }
+
+      .align-items-center {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Login</h2>
+              <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="username" class="form-label">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter username"
+                    name="username"
+                  />
+                </div>
+                <div class="">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter password"
+                    name="password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

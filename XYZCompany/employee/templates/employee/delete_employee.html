@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load form_tags %} {% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4 class="card-title">Delete Employee</h4>
+          <p class="card-text">
+            Are you sure you want to delete the profile of
+            <strong>{{ employee.name }}</strong>?
+          </p>
+          <p>This action cannot be undone.</p>
+
+          <!-- Form to confirm deletion -->
+          <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
